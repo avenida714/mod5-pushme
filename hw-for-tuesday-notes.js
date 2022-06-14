@@ -111,3 +111,34 @@ function NavBar() {
     </nav>
   );
 }
+
+
+function NavBar() {
+  const world = "world";
+  return ( // the navlinks props object will have a key of color with the value of green
+    <nav>
+      <h1>Pet App</h1>
+      <NavLinks hello={world} color="green"/>
+    </nav>
+  );
+}
+
+//extract only the hello and color keys from the props object passed down to NavLinks
+
+function NavLinks({ hello, color}) {
+  return (
+    <ul>
+      <li>
+        <a href="/hello">{hello}</a>
+      </li>
+      <li className="selected">
+        <a href="/pets">Pets</a>
+      </li>
+      <li>
+        <a href="/owners">Owners</a>
+      </li>
+    </ul>
+  );
+}
+
+//props should never be modified in their children1!!
