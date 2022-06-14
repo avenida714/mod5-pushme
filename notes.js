@@ -14,3 +14,10 @@ function NavBar() {
     </nav>
   );
 }
+
+// get a dom node for react to render to
+
+const rootElement = document.getElementById('root')
+
+//give react the elemtn tree and the target
+ReactDOM.render(<NavBar />, rootElement);
