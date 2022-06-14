@@ -89,3 +89,25 @@ function CorrectComponent(){
     </>
   );
 }
+
+
+//props is an object that gets passed down from the parent function component into the child function component.
+
+function NavBar() {
+  return (
+    <nav>
+      <h1>Pet App</h1>
+      <NavLinks hello="world"/>
+    </nav>
+  );
+}
+//or
+function NavBar() {
+  const world = "world"
+  return (
+    <nav>
+      <h1>Pet App</h1>
+      <NavLinks hello={world} />
+    </nav>
+  );
+}
