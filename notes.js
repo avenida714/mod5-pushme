@@ -52,3 +52,12 @@ function NavBar() {
     </nav>
   );
 }
+
+//export here
+
+export default NavLinks;
+
+//import at top
+import NavLinks from '.NavLinks.js'  //
+
+export default NavBar;
