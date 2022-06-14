@@ -33,3 +33,22 @@ function ExampleComponent() {
     <div>World!</div>
   );
 }
+
+function NavLinks() {
+  return (
+    <ul>
+        <li className="selected">
+            <a href="/pets">Pets</a>
+        </li>
+    </ul>
+  );
+}
+
+function NavBar() {
+  return (
+    <nav>
+        <h1>Pet App</h1>
+        <NavLinks />
+    </nav>
+  );
+}
