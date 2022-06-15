@@ -52,3 +52,10 @@ const [toggleOne, setToggleOne] = useState(false)
 useEffect(() => {
   console.log('UseEffect1 Ran');
 }, []); // empty dependency array as second argument
+
+
+const [toggleTwo, setToggleTwo] = useState(false);
+
+useEffect(() => {
+  console.log('UseEffect2 Ran');
+}, [toggleTwo]);
