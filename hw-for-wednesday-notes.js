@@ -24,7 +24,7 @@ export default App
 
 import { useEfect, useEffect} from 'react';
 
-const Main = () => {
+// const Main = () => {
   useEffect(() => {
     console.log('useEffect1 Run')
   });
@@ -35,14 +35,14 @@ const Main = () => {
       <h1>Main Component</h1>
     </div>
   );
-};
+// };
 
-export default Main;
+// export default Main;
 
 
 const [toggleOne, setToggleOne] = useState(false)
 
-<button onClick={() => setToggleOne(!toggleOne)}>ToggleOne</button>
+{/* <button onClick={() => setToggleOne(!toggleOne)}>ToggleOne</button> */}
 
 
 //useEfect with an epty dependency array
