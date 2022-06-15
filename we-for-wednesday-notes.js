@@ -38,3 +38,17 @@ const Main = () => {
 };
 
 export default Main;
+
+
+const [toggleOne, setToggleOne] = useState(false)
+
+<button onClick={() => setToggleOne(!toggleOne)}>ToggleOne</button>
+
+
+//useEfect with an epty dependency array
+
+// only run one time, directly after the first render
+
+useEffect(() => {
+  console.log('UseEffect1 Ran');
+}, []); // empty dependency array as second argument
