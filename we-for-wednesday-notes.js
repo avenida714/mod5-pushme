@@ -65,3 +65,21 @@ useEffect(() => {
   if(toggleTwo)
     console.log('toggleTwo sliece of state istrue so this code runs')
 }, [toggleTwo]);
+
+
+//optional cleanup function
+
+const [count, setCount] = useState(0)
+
+useEffect(() => {
+  setInterval(() => {
+    console.log(`UseEffect3 with interval number ${count} is running`)
+  }, 1000)
+}, [count]);
+
+return () => {
+  console.log(
+    `Use Effect3 cleanup ran.\nsetInterval number ${count} is being cleared out`
+  );
+  clearInterval(myInterval);
+};
