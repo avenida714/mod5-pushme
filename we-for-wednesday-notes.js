@@ -59,3 +59,9 @@ const [toggleTwo, setToggleTwo] = useState(false);
 useEffect(() => {
   console.log('UseEffect2 Ran');
 }, [toggleTwo]);
+
+useEffect(() => {
+  console.log('UseEffect2 Ran');
+  if(toggleTwo)
+    console.log('toggleTwo sliece of state istrue so this code runs')
+}, [toggleTwo]);
