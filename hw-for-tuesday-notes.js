@@ -55,7 +55,7 @@ function NavBar() {
 
 //export here
 
-export default NavLinks;
+// export default NavLinks;
 
 //import at top
 import NavLinks from '.NavLinks.js'  //
