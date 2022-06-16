@@ -158,3 +158,44 @@ function PupForm() {
 }
 
 export default PupForm
+
+
+//create a context hook
+
+// ./src/context/PupContext.js
+
+import { createContex, useState, useContext } from 'react';
+
+export function usePuppyType() {
+  return useContext(PupContext);
+}
+
+//new  PupImage
+
+import {usePuppyType} from '../../context/PupContext'
+
+const PupImage = () => {
+  const {PuppyType} = usePuppyType();
+  return (
+    <img src={puppyType} alt="pup" />
+  );
+};
+
+export default PupImage
+
+//new PupForm
+
+import { useSate} from 'react';
+import { usePuppyType } from '../../context/PupContext';
+import banana from '../../pups/banana-pup.jpg';
+import sleepy from '../../pups/sleepy-pup.jpg';
+import speedy from '../../pups/speedy-pup.jpg';
+
+function PupForm() {
+  const { puppyType, setPuppyType } = usePuppytype();
+  const [selectedpup, setSelectedPup] = useState(puppyType);
+
+  //...
+}
+
+export default PupForm
