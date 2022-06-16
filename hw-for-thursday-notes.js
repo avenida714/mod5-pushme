@@ -119,3 +119,42 @@
   }
 
   export default PupImage;
+
+
+// ./src/components/PupForm/PupForm.js
+
+import { useState, useContext } from 'react';
+import { PupContext} from '../../context/PupContext'
+import speedy from '../../pups/speedy-pup.jpg'
+import banana from '../../pups/banana-pup.jpg'
+import sleepy from '../../pups/sleepy-pup.jpg'
+
+function PupForm() {
+  const { puppyType, setPuppyType } = useContext(PupContext);
+  const [selectedPup, setSelectedPup] = useState(puppyType);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setPuppyType(selectedPup);
+  }
+
+  return (
+    <form onSubmit={onSubmit}>
+      <select
+        name="pup"
+        onChange={e => setSelectedPup(e.target.value)}
+        value={selectedPup}
+      >
+        <option value="select" disabled>Select a pup!</option>
+        <option value={speedy}>Speedy Pup</option>
+        <option value={sleepy}>Sleepy Pup</option>
+        <option value={banana}>Banana Pup</option>
+      </select>
+      <button>
+        Submit
+      </button>
+    </form>
+  );
+}
+
+export default PupForm
