@@ -19,3 +19,23 @@
 
   //3rd IS THE CONTEXT PART -  allows "gloal" data in a react application and stores  a single value.
   // par a/  createContext creates the global object  useContext - consumes that global information.
+
+  //
+
+  import { CreateContext } from 'react';
+
+  export const LanguageContext = createContext()
+
+  //wrapper component
+
+  export const LanguageProvider = props => {
+    const [language, setLanguage] = useState('french');
+
+    return (
+      <LanguageContext.Provider
+        value={{ language, setLanguage, french, english }}
+        >
+          {props.children}
+        </LanguageContext.Provider>
+    );
+  };
