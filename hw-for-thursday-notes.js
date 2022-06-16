@@ -36,6 +36,16 @@
         value={{ language, setLanguage, french, english }}
         >
           {props.children}
-        </LanguageContext.Provider>
+        </LanguageContext.Provider> // whatever we put between the tags, it will be a child
     );
   };
+
+
+  //make a foler in src called context
+  //create a file called PupContext.js
+
+
+  //PupContext.js
+  import {createContext } from 'react';
+
+  export const PupContext = createContext()
