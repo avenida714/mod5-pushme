@@ -10,3 +10,9 @@
 //       a => e  with prop context
 
 //"lifting state up"    use context if there are many nested trees
+
+
+//THREE PARTS OF CONTEXT
+   //1ST IS THE PROVIDER - component that is used to wrap other components in order to give access to the context's value. in our case, we will wrap the entire app
+
+  //2 2ND IS THE CONSUMER - we don't see it in our code, but we use it in our hooks. react component that reads a context's value. consumer components must always be nested under provider components because the provider must render FIRST in order to pass that data down the tree. in other words, needs to exist before someone can talk to it.
