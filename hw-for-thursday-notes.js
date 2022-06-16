@@ -49,3 +49,25 @@
   import {createContext } from 'react';
 
   export const PupContext = createContext()
+
+
+  //create a provider
+
+  <PupContext.Provider value={/*some value*/}>
+    <App />
+  </PupContext.Provider>
+
+  <PupProvider>
+    <App />
+  </PupProvider>
+
+  //./src/context/PupContext.js
+  //...
+
+  export function PupProvider(props) {
+    return (
+      <PupContext.Provider>
+        {props.children}
+      </PupContext.Provider>
+    );
+  };
