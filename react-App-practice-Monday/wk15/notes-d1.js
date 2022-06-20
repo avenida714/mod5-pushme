@@ -80,6 +80,10 @@ render() {
 //better to use a function as a second argument
 
 // componentWillUnmount - similar to a cleanup func in useEffect  runs before a component is umounted and stops prev behavior
+//return statement inside of the useEffect acts just like this
+  //used with a lot of subscriptions, or with a lot of IO
+  //used to stop leaking data all over the place.
+
 
 
 //component did mount
