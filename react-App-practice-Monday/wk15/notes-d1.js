@@ -15,3 +15,17 @@
  *
  *
  */
+
+//create a class component
+
+import {Component} from 'react';
+
+class CreateClassComponent extends Component {
+  render() {
+    return (
+      <div className='wrapper'>
+        <h1>Class Component</h1>
+      </div>
+    );
+  }
+}
