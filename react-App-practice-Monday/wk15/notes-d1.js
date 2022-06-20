@@ -75,6 +75,9 @@ render() {
 //good for validating form inputs, users logging in
 
 // componentDidUpdate  -- similar to useEffect with either state or props in dep. array  componentdidUpdate(prevProps, prevState) { if(){...}}
+// works the same if the state of the array changes in useEffect.
+//runs after every render.  very easy to cause an infinite loop.  don't want to set state inside of componentDidUpdate
+//better to use a function as a second argument
 
 // componentWillUnmount - similar to a cleanup func in useEffect  runs before a component is umounted and stops prev behavior
 
