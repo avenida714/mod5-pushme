@@ -91,7 +91,16 @@ async componentDidMount() {
 }
 
 
-componentdidUpdate (prevProps, prevState) {
-  if (prevState.number > 500)
+componentdidUpdate (prevProps, prevState) {  //this can keep updating, so you should have a conditional to stop a stack overflow
+ // if (prevState.number > 500) either can be used
+ if (this.state.number > 500)
     alert(`${prevState.number} is greater than 500!`)
+}
+
+
+//with set interval things, we need to clean up memory leaks/stack overflows
+//solution: use componentWillUnmount
+
+componentWillUnmount() {
+  clearInterval(this.colorChange);
 }
