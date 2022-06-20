@@ -138,3 +138,61 @@ store1.dispatch({
 const stateAfterAction1 = store.getState()
 
 //how to use the createStore method to create a store instance, the store.dispatch method to dispatch an action to trigger a state update, the store.subscribe method to listen for state updates, and store.getState method to get the current state.
+
+
+//*******************************ACTIONS *******************************/
+
+//ACTION CREATORS
+const addFruit = (fruit) => {
+  return {   // can also be implicit return because arrow; but this is more difficult to debug
+    type: 'ADD_FRUIT',
+    fruit,
+  };
+};
+
+//add fruit with a fruit payload and dispatch at same time
+store.dispatch(addFruit('apple'))
+
+//same but longer
+const appleAction = addFruit('apple')
+store.dispatch(appleAction)
+
+//use a constant to avoid typos  ducks naming is all caps?
+const ADD_FRUIT = 'groceryApp/fruit/ADD_FRUIT';
+
+const addFruit = (fruit) => {
+  return {
+    type: ADD_FRUIT,
+    fruit,
+  }
+};
+
+//remember actions do not update the state directly. they are triggers. reducers update the state based on action. actions define what kind of change the state should undergo. reducers deifne how the state is changed based on the type action.
+//actions and reducers work together to update teh state.
+
+
+//*******************************REDUCERS *******************************/
+
+//REDUCERS    use a switch case to deal with multiple action types
+
+const fruitReducer = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_FRUIT':
+      return [...state, action.fruit]
+    case 'ADD_FRUITs':
+      return [...state, action.fruits]
+    case 'SELL_FRUIT':
+    // find index of the first instance of action.fruit
+    const index = state.indexOf(action.fruit);
+    if(index !== -1) {  //remove first instance of action.fruit using the index and return a new arr
+      const newState = [...state];
+      newState.splice(index, 1);
+      return newState;
+    }
+    return state; // if aciton.fruit is not in state, return previous state
+    case 'SELL_OUT':
+      return [];
+    default:
+      return state;
+  }
+};
