@@ -89,3 +89,9 @@ async componentDidMount() {
   const response = await data.json();
   const parsedData = response.data.br.mods;
 }
+
+
+componentdidUpdate (prevProps, prevState) {
+  if (prevState.number > 500)
+    alert(`${prevState.number} is greater than 500!`)
+}
