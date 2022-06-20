@@ -65,3 +65,76 @@ const reducer = (state = {}, aciton) => {
       return state;
   }
 };
+
+
+//state in redux is immutable, so state represented by an ar or obj must be updated with a NEW ARRAY or OBJ, not a mutated version
+//do this with the spread operator ...
+const obj = { hello: "world" };
+const newObj = { ...obj }; // { hello: "world" }
+
+const arr = [0, 1, 2, 3];
+const newArr = [ ...arr ]; // [0, 1, 2, 3]
+
+//overwrite a key and make new obj like this:
+const obj2 = {
+  a: "hello",
+  b: "world"
+};
+const newObj2 = {
+  ...obj,
+  b: "WORLD!!"
+}; // { a: "hello", b: "WORLD!!" }
+
+
+
+//subscribing to store
+//define a callback display and subscribe it to the store:
+
+const display = () => {
+  console.log(store.getState())
+}
+
+const unsubscribeDisplay = store.subscribe(display);
+
+store.dispatch(adOrange); // ['orange', 'orange']
+
+//display will no longer be invoked after store.dispatch()
+unsubscribeDisplay();
+
+store.dispatch(addOrange); //no output
+
+//the store processed the dispatched aciton and then called all of its subs in response. The only sub is your display cb which logs the current state when called.
+
+
+//simple example of creating a store
+
+import { createStore } from 'redux';
+
+const store1 = createStore(reducer, preloadedState, enhancer)  //last two are optional, reducer is NOT OPTIONAL
+
+//get current state with getState
+const currentState = store1.getState()
+
+//upate state with dispatch
+const stateBeforeAction = store.getState();
+
+store.dispatch({
+  type: 'ACTION_TYPE',
+  payload: 'whatever is needed for the new state'
+});
+
+const stateAfterAction = store1.getState()
+
+//any funcs passed into the sub method on the store will be called iwth the new state
+store.subscribe(() => console.log(store.getState()));
+
+const stateBeforeAction1 = store1.getState();
+
+store1.dispatch({
+  type: 'ACTION_TYPE',
+  payload: 'whatever is needed for the new state'
+});
+//new state will be logged
+const stateAfterAction1 = store.getState()
+
+//how to use the createStore method to create a store instance, the store.dispatch method to dispatch an action to trigger a state update, the store.subscribe method to listen for state updates, and store.getState method to get the current state.
