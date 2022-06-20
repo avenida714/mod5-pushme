@@ -21,11 +21,42 @@
 import {Component} from 'react';
 
 class CreateClassComponent extends Component {
-  render() {
+  render() {  //this creates the class component; allows us to render a DOM element
     return (
       <div className='wrapper'>
         <h1>Class Component</h1>
       </div>
     );
   }
+}
+
+export default CreateClassComponent;
+
+
+//create state in a Class component
+class CreateClassComponent extends Component {
+  constructor() {
+    super();  //inherits previous functionality from other classes
+    this.state = {  //state is now an obj, not a slice; only used ONE TIME
+      name: {  // first slice of state
+        fName: 'Bobo',
+        lName: 'Li'
+      },
+      color: 'black'  //second slice of state
+    };
+  }
+}
+
+render() {
+  return (
+    <div className='wrapper'>
+      <span
+      className='square'
+      style={{backgroundColor: this.state.color}}
+      />
+      <h2>
+        by {this.state.name.fName} {this.state.name.lName}
+      </h2>
+    </div>
+  );
 }
