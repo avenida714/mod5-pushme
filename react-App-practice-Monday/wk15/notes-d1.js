@@ -76,3 +76,16 @@ render() {
 // componentDidUpdate  -- similar to useEffect with either state or props in dep. array  componentdidUpdate(prevProps, prevState) { if(){...}}
 
 // componentWillUnmount - similar to a cleanup func in useEffect  runs before a component is umounted and stops prev behavior
+
+
+//component did mount
+class Mountcomponent extends Component {
+  constructor(){
+
+  }
+}
+async componentDidMount() {
+  const data = await fetch('https:/')
+  const response = await data.json();
+  const parsedData = response.data.br.mods;
+}
