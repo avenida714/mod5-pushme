@@ -60,3 +60,19 @@ render() {
     </div>
   );
 }
+
+
+//update teh state of a class component
+
+
+
+/********************************************************** */
+//lifecycle methods
+//constructor runs once only
+//render method will be called many times   -- content visibleon screen
+
+//  componentDidMount  -- similar to the useEffect  componentDidMount(){}    runs once only
+
+// componentDidUpdate  -- similar to useEffect with either state or props in dep. array  componentdidUpdate(prevProps, prevState) { if(){...}}
+
+// componentWillUnmount - similar to a cleanup func in useEffect  runs before a component is umounted and stops prev behavior
