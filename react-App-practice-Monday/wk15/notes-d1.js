@@ -72,6 +72,7 @@ render() {
 //render method will be called many times   -- content visibleon screen
 
 //  componentDidMount  -- similar to the useEffect  componentDidMount(){}    runs once only
+//good for validating form inputs, users logging in
 
 // componentDidUpdate  -- similar to useEffect with either state or props in dep. array  componentdidUpdate(prevProps, prevState) { if(){...}}
 
