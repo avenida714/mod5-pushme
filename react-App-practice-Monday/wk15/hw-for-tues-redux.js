@@ -262,7 +262,7 @@ const goodReducer = (state = { count: 0 }, action) => {
 //use provider to give access to the connected redux store, very much like settin up a context
 
 import {Provider} from 'react-redux';
-import configureStore form './store';
+// import configureStore form './store';
 
 const storeE = configureStore()
 
@@ -318,13 +318,13 @@ function FruitsList() {
 
 //useDispatch
 
-import {useDispatch} from 'react-redux';
-import { addFruit } from '../store/fruitReducer';
+// import {useDispatch} from 'react-redux';
+// import { addFruit } from '../store/fruitReducer';
 
-function addmelonButon() {
-  const dispatch = useDispatch();
+// function addmelonButon() {
+//   const dispatch = useDispatch();
 
-  return (
-    <button onClick-
-  )
-}
+//   return (
+//     <button onClick-
+//   )
+// }
