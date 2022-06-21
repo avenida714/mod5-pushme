@@ -7,7 +7,7 @@
 
 //STATE  ALL THE INFO STORED BY THAT PROGRAM AT A PART. POINT IN TIME. GNERALLY USED TO REFER TO THE DATA STORED BY THE PROGRAM AT A PARTIC. INSTANCE IN TIME.  JOB OF REDUX IS TO STORE THE STATE OF YOUR APP, MAKE IT AVAILABLE TO ENTIRE APP.
 
-// STORE    the redux store is a single POO with a few methods, including getState, dispatch(action), and subscribe(listener)
+// STORE    the redux store is a single POJO with a few methods, including getState, dispatch(action), and subscribe(listener)
   // any state you want redux to handle is held in the store
 
 //ACTIONS  simple POJO with a type property.  can update the store. they can be dispatched -- sent tot eh store. redux apps use functions called action creators that return actions. these take arguments which allow them to customize the data contained in the actions they generate.
@@ -160,7 +160,7 @@ store.dispatch(appleAction)
 //use a constant to avoid typos  ducks naming is all caps?
 const ADD_FRUIT = 'groceryApp/fruit/ADD_FRUIT';
 
-const addFruit = (fruit) => {
+const addFruit1 = (fruit) => {
   return {
     type: ADD_FRUIT,
     fruit,
@@ -196,3 +196,135 @@ const fruitReducer = (state = [], action) => {
       return state;
   }
 };
+
+// use the ... to make a new array, and splice it mutates it.  don't mutate the original array.
+
+//best practices, use Object.assign to create a shallow dup of the previous state
+
+const goodReducer = (state = { count: 0 }, action) => {
+  switch (action.type) {
+    case 'INCREMENT_COUNTER':
+      const nextState = Object.assign({}, state); //create shallow dup
+      nextState.count++;
+      return nextState;
+    default:
+      return state;
+  }
+}
+
+//use mult reducers as the app gets bigger/more complicated.  each one manages a slice o state
+
+//Imagine that your fruits business is extremely successful and it grows so much that you need multiple farmers helping you to keep your stand stocked with fruit. Your application's state will need to grow to store not only an array of fruit but also a farmers object that keeps track of your farmers.
+// Here's a sample state tree of your updated application:
+// {
+//   fruit: [
+//     'APPLE',
+//     'APPLE',
+//     'ORANGE',
+//     'GRAPEFRUIT',
+//     'WATERMELON',
+//   ],
+//   farmers: {
+//     1: {
+//       id: 1,
+//       name: 'John Smith',
+//       paid: false,
+//     },
+//     2: {
+//       id: 2,
+//       name: 'Sally Jones',
+//       paid: false,
+//     },
+//   }
+// }
+
+// fruitReducer - handles actions updating the fruits slice of state
+// farmersReducer - handles actions updating the new farmers slice of state
+
+
+
+
+//*******************************SETTING UP REDUX WITH REACT *******************************/
+
+
+/**In general, the steps to integrate Redux into an existing React application are:
+
+    Set up Redux
+        Install the redux and react-redux npm package
+        Define your actions
+        Define your reducer(s)
+        Create your store
+        Wrap the React application with the Redux provider and the created store
+    Update components
+        Call the useSelector hook from react-redux package to retrieve parts of the Redux store state
+        Call the useDispatch hook from react-redux package to dispatch actions to the store */
+
+//use provider to give access to the connected redux store, very much like settin up a context
+
+import {Provider} from 'react-redux';
+import configureStore form './store';
+
+const storeE = configureStore()
+
+function Root() {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+}
+
+//all components can access the store context when it is wrapped like above
+
+//USE SELECTOR REACT/REDUX HOOK
+
+//accepts a func as an arg, accept the current or updated state of the redux store.  return value is what is returned from useSelector
+
+import { useSelector } from 'react-redux';
+
+function FruitsList() {
+  const fruits = useSelector((state) => state.fruitState);
+
+  return (
+    <ul>
+      {fruits.map((fruit) => (
+      <li key={fruit.id}>{fruit.name}</li>
+      ))}
+    </ul>
+  )
+}
+
+//selector func is defined then used inside of a func component
+
+export const getFruits = (state) => {
+  return state.fruitState;
+}
+
+import { getFruits} from '../store/fruitReducer';
+
+function FruitsList() {
+  const fruits = useSelector(getFruits);
+
+  return (
+    <ul>
+      {fruits.map((fruit) => (
+        <li key={fruit.id}>{fruit.name}</li>
+      ))}
+    </ul>
+  )
+}
+
+
+
+//useDispatch
+
+import {useDispatch} from 'react-redux';
+import { addFruit } from '../store/fruitReducer';
+
+function addmelonButon() {
+  const dispatch = useDispatch();
+
+  return (
+    <button onClick-
+  )
+}
