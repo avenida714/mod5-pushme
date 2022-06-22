@@ -33,3 +33,23 @@ export default configureStore
 //   return state
 // }
 // export default fruitReducer
+
+
+// index.js
+
+import {Provider} from 'react-redux'
+import reactDOM from 'react-com';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+
+//wrap whole app in provider and browserrouter in index.js
+
+const Root = () => {
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+       <App/>
+      </BrowserRouter>
+    </Provider>
+  )
+}
