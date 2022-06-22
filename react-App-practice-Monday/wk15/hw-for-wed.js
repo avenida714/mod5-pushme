@@ -12,3 +12,7 @@
 
 //but now we are running frontend and backend. they need to talk to one another.  WE NEED ONE ROOT FOLDER.
   //inside the root, there's a backend and a frontend.  backend will have all the express and psql; frontend will have react
+
+
+  //ADDING A PROXY SO THAT THE FRONT CAN TALK TO THE BACK
+  //acts as a gateway, uses an abbreviate url  :   http://localhost:5000/api/tweets   ==>   /api/tweets  (don't forget the / before api)
