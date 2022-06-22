@@ -16,3 +16,7 @@
 
   //ADDING A PROXY SO THAT THE FRONT CAN TALK TO THE BACK
   //acts as a gateway, uses an abbreviate url  :   http://localhost:5000/api/tweets   ==>   /api/tweets  (don't forget the / before api)
+
+
+
+//inside app, frontend package.json   bottom     "proxy": "http://localhost:5000"
